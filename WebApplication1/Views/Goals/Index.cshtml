@@ -1,50 +1,71 @@
-﻿@model IEnumerable<WebApplication1.Models.Goals>
+﻿@model List<WebApplication1.Models.Goals>
 
-@{
-    ViewData["Title"] = "Goals";
-}
+<h2>Lista Dodanych Celów</h2>
 
-<h1>Goals</h1>
+<p><a asp-action="Create" class="btn btn-primary">Utwórz Cel</a></p>
 
-<p>
-    <a asp-action="Create">Create New Goal</a>
-</p>
+@if (Model.Any(g => g.GoalType == 1 || g.GoalType == 2))
+{
 
+    @if (Model.Any(g => g.GoalType == 1))
+{
 <table class="table">
     <thead>
         <tr>
-            <th>Goal Type</th>
-            <th>Mass</th>
-            <th>Weight Loss</th>
-            <!-- Dodaj resztę nagłówków zależnie od pól modelu -->
-            <th>Actions</th>
+            <th>Typ Celu</th>
+            <th>Docelowy Ciężar</th>
+            <th>Data utworzenia</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var goal in Model)
+        @foreach (var goal in Model.Where(g => g.GoalType == 1))
         {
             <tr>
-                <td>
-                    @goal.GetGoalTypeName()
-                </td>
-                <td>@goal.Mass</td>
-                <td>
-                    @if (goal.GoalType == 2)
-                    {
-                        @(goal.Mass - goal.WeightGoal)
-                    }
-                    else
-                    {
-                        <text></text>
-                    }
-                </td>
-                <!-- Dodaj resztę pól zależnie od pól modelu -->
-                <td>
-                    <a asp-action="Edit" asp-route-id="@goal.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@goal.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@goal.Id">Delete</a>
-                </td>
+                <td>@goal.GetGoalTypeName()</td>
+                <td>@goal.WeightGoal</td>
+                <td>@goal.CreateDate.ToString("yyyy-MM-dd")</td>
             </tr>
         }
     </tbody>
 </table>
+}
+else
+{
+    <p></p>
+}
+
+    @if (Model.Any(g => g.GoalType == 2))
+{
+<table class="table">
+    <thead>
+        <tr>
+            <th>Typ Celu</th>
+            <th>Aktualna Masa</th>
+            <th>Docelowa Masa</th>
+            <th>Różnica</th>
+            <th>Data utworzenia</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var goal in Model.Where(g => g.GoalType == 2))
+        {
+            <tr>
+                <td>@goal.GetGoalTypeName()</td>
+                <td>@goal.Mass</td>
+                <td>@goal.MassGoal</td>
+                <td>@((goal.MassGoal - goal.Mass)*-1)</td>
+                <td>@goal.CreateDate.ToString("yyyy-MM-dd")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+}
+else
+{
+<p></p>
+}
+}
+else
+{
+    <p>Brak dodanych celów.</p>
+}

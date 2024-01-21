@@ -11495,19 +11495,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Maciej\\.nuget\\packages\\": {}
+    "C:\\Users\\reed\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Maciej\\Desktop\\projekt\\projekt_asp.net\\WebApplication1\\WebApplication1.csproj",
+      "projectUniqueName": "C:\\projects\\asp.net\\PROJEKT\\projekt_asp.net\\WebApplication1\\WebApplication1.csproj",
       "projectName": "WebApplication1",
-      "projectPath": "C:\\Users\\Maciej\\Desktop\\projekt\\projekt_asp.net\\WebApplication1\\WebApplication1.csproj",
-      "packagesPath": "C:\\Users\\Maciej\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Maciej\\Desktop\\projekt\\projekt_asp.net\\WebApplication1\\obj\\",
+      "projectPath": "C:\\projects\\asp.net\\PROJEKT\\projekt_asp.net\\WebApplication1\\WebApplication1.csproj",
+      "packagesPath": "C:\\Users\\reed\\.nuget\\packages\\",
+      "outputPath": "C:\\projects\\asp.net\\PROJEKT\\projekt_asp.net\\WebApplication1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Maciej\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\reed\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

@@ -6,37 +6,35 @@
 
 <h1>Create</h1>
 
-<form asp-action="Create">
+<form asp-action="Create" id="goalForm">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
     <div class="form-group">
         <label asp-for="GoalType" class="control-label">Cel:</label>
-        <select asp-for="GoalType" class="form-control">
+        <select asp-for="GoalType" class="form-control" id="goalType">
             <option value="1">Podnieść Ciężar</option>
             <option value="2">Schudnąć</option>
         </select>
         <span asp-validation-for="GoalType" class="text-danger"></span>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" id="massGroup">
         <label asp-for="Mass" class="control-label">Aktualna masa:</label>
         <input asp-for="Mass" class="form-control" />
         <span asp-validation-for="Mass" class="text-danger"></span>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" id="massGoalGroup">
         <label asp-for="MassGoal" class="control-label">Cel masy:</label>
         <input asp-for="MassGoal" class="form-control" />
         <span asp-validation-for="MassGoal" class="text-danger"></span>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" id="weightGoalGroup">
         <label asp-for="WeightGoal" class="control-label">Docelowy ciężar:</label>
         <input asp-for="WeightGoal" class="form-control" />
         <span asp-validation-for="WeightGoal" class="text-danger"></span>
     </div>
-
-    <!-- Dodaj inne pola formularza zgodnie z modelem -->
 
     <div class="form-group">
         <input type="submit" value="Create" class="btn btn-primary" />
@@ -44,6 +42,27 @@
 </form>
 
 @section Scripts {
+    <script>
+        $(document).ready(function () {
+            // Hide the Mass and MassGoal fields initially
+            $("#massGroup, #massGoalGroup").hide();
+
+            // Show/hide the fields based on the selected GoalType
+            $("#goalType").change(function () {
+                var selectedValue = $(this).val();
+                if (selectedValue == "1") {
+                    $("#massGroup, #massGoalGroup").hide();
+                    $("#weightGoalGroup").show();
+                } else if (selectedValue == "2") {
+                    $("#massGroup, #massGoalGroup").show();
+                    $("#weightGoalGroup").hide();
+                } else {
+                    // Handle other cases if needed
+                }
+            });
+        });
+    </script>
+
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
