@@ -2000,3 +2000,4 @@ C:\projects\asp.net\PROJEKT\WebApplication1\WebApplication1\obj\Debug\net6.0\ref
 C:\projects\asp.net\PROJEKT\WebApplication1\WebApplication1\obj\Debug\net6.0\WebApplication1.pdb
 C:\projects\asp.net\PROJEKT\WebApplication1\WebApplication1\obj\Debug\net6.0\WebApplication1.genruntimeconfig.cache
 C:\projects\asp.net\PROJEKT\WebApplication1\WebApplication1\obj\Debug\net6.0\ref\WebApplication1.dll
+C:\projects\asp.net\PROJEKT\WebApplication1\WebApplication1\obj\Debug\net6.0\WebApplication1.sourcelink.json

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,21 +12,35 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
+    [Authorize]
     public class ExerciseTypesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public ExerciseTypesController(ApplicationDbContext context)
+        public ExerciseTypesController(ApplicationDbContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: ExerciseTypes
         public async Task<IActionResult> Index()
         {
-              return _context.ExerciseType != null ? 
-                          View(await _context.ExerciseType.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.ExerciseType'  is null.");
+            if (_context.ExerciseType == null)
+            {
+                return Problem("Entity set 'ApplicationDbContext.ExerciseType' is null.");
+            }
+
+            // Pobierz zalogowanego użytkownika
+            IdentityUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            // Pobierz ćwiczenia tylko dla bieżącego użytkownika
+            var userExerciseTypes = await _context.ExerciseType
+                .Where(et => et.UserId == user.Id)
+                .ToListAsync();
+
+            return View(userExerciseTypes);
         }
 
         // GET: ExerciseTypes/Details
@@ -60,6 +76,12 @@ namespace WebApplication1.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Pobierz zalogowanego użytkownika
+                IdentityUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+                // Ustaw UserId na podstawie zalogowanego użytkownika
+                exerciseType.UserId = user.Id;
+
                 _context.Add(exerciseType);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -88,7 +110,7 @@ namespace WebApplication1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] ExerciseType exerciseType)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,UserId")] ExerciseType exerciseType)
         {
             if (id != exerciseType.Id)
             {
@@ -99,6 +121,10 @@ namespace WebApplication1.Controllers
             {
                 try
                 {
+                    // Ustaw UserId na podstawie zalogowanego użytkownika
+                    IdentityUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+                    exerciseType.UserId = user.Id;
+
                     _context.Update(exerciseType);
                     await _context.SaveChangesAsync();
                 }

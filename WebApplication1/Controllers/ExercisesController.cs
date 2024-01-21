@@ -7,12 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data;
 using WebApplication1.Models;
-using WebApplication1.Data;
-using WebApplication1.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApplication1.Controllers
 {
+    [Authorize]
     public class ExercisesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -27,14 +27,15 @@ namespace WebApplication1.Controllers
         // GET: Exercises
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Exercise.Include(e => e.ExerciseType).Include(e => e.Session);
+            IdentityUser user = _userManager.FindByNameAsync(User.Identity.Name).Result;
+            var applicationDbContext = _context.Exercise.Include(e => e.ExerciseType).Include(e => e.Session).Where(e => e.UserId == user.Id);
             return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: Exercises/Details
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Exercise == null)
+            if (id == null)
             {
                 return NotFound();
             }
@@ -43,10 +44,14 @@ namespace WebApplication1.Controllers
                 .Include(e => e.ExerciseType)
                 .Include(e => e.Session)
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (exercise == null)
             {
                 return NotFound();
             }
+
+            ViewData["ExerciseTypeName"] = exercise.ExerciseType.Name;
+            ViewData["SessionName"] = exercise.Session.SessionName; // Przekazanie nazwy sesji do widoku
 
             return View(exercise);
         }
@@ -64,7 +69,12 @@ namespace WebApplication1.Controllers
 
             ViewData["SessionId"] = new SelectList(userSessions, "Id", "Start");
 
-            ViewData["ExerciseTypeId"] = new SelectList(_context.Set<ExerciseType>(), "Id", "Name");
+            // Pobierz typy ćwiczeń tylko dla danego użytkownika
+            var userExerciseTypes = _context.ExerciseType
+                .Where(et => et.UserId == user.Id)
+                .ToList();
+
+            ViewData["ExerciseTypeId"] = new SelectList(userExerciseTypes, "Id", "Name");
 
             return View();
         }
@@ -78,10 +88,15 @@ namespace WebApplication1.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Ustaw UserId na podstawie zalogowanego użytkownika
+                IdentityUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+                exercise.UserId = user.Id;
+
                 _context.Add(exercise);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             ViewData["ExerciseTypeId"] = new SelectList(_context.Set<ExerciseType>(), "Id", "Id", exercise.ExerciseTypeId);
             ViewData["SessionId"] = new SelectList(_context.Session, "Id", "Id", exercise.SessionId);
             return View(exercise);
@@ -90,7 +105,19 @@ namespace WebApplication1.Controllers
         // GET: Exercises/Edit
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Exercise == null)
+            //if (id == null || _context.Exercise == null)
+            //{
+            //    return NotFound();
+            //}
+
+            //var exercise = await _context.Exercise.FindAsync(id);
+            //if (exercise == null)
+            //{
+            //    return NotFound();
+            //}
+            //ViewData["ExerciseTypeId"] = new SelectList(_context.Set<ExerciseType>(), "Id", "Id", exercise.ExerciseTypeId);
+            //ViewData["SessionId"] = new SelectList(_context.Session, "Id", "Id", exercise.SessionId);
+            if (id == null)
             {
                 return NotFound();
             }
@@ -100,8 +127,24 @@ namespace WebApplication1.Controllers
             {
                 return NotFound();
             }
-            ViewData["ExerciseTypeId"] = new SelectList(_context.Set<ExerciseType>(), "Id", "Id", exercise.ExerciseTypeId);
-            ViewData["SessionId"] = new SelectList(_context.Session, "Id", "Id", exercise.SessionId);
+
+            // Pobierz aktualnie zalogowanego użytkownika synchronicznie
+            var user = Task.Run(() => _userManager.FindByNameAsync(User.Identity.Name)).Result;
+
+            // Pobierz sesje dla danego użytkownika
+            var userSessions = _context.Session
+                .Where(s => s.UserId == user.Id)
+                .ToList();
+
+            // Pobierz typy ćwiczeń tylko dla danego użytkownika
+            var userExerciseTypes = _context.ExerciseType
+                .Where(et => et.UserId == user.Id)
+                .ToList();
+
+            // Ustaw dane w ViewBag
+            ViewBag.Sessions = new SelectList(userSessions, "Id", "Start", exercise.SessionId);
+            ViewBag.ExerciseTypes = new SelectList(userExerciseTypes, "Id", "Name", exercise.ExerciseTypeId);
+
             return View(exercise);
         }
 

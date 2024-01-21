@@ -10,36 +10,42 @@
     <h4>Exercise</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Weight)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Weight)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Reps)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Reps)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Series)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Series)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ExerciseType)
+        <dt class="col-sm-2">
+            Exercise Type
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ExerciseType.Id)
+        <dd class="col-sm-10">
+            @ViewData["ExerciseTypeName"]
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.SessionId)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.SessionId)
+        <dd class="col-sm-10">
+            @ViewData["SessionName"]
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd
     </dl>
 </div>
 <div>

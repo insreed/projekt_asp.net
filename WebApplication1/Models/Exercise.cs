@@ -17,5 +17,7 @@ namespace WebApplication1.Models
 
         public string? UserId { get; set; }
         public IdentityUser? User { get; set; }
+
+        public DateTime CreateDate { get; set; } = DateTime.Now;
     }
 }
