@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Controllers",
+    "\\Models",
+    "\\Views",
+    "\\Views\\Exercises",
+    "\\Views\\ExerciseTypes",
+    "\\Views\\Home",
+    "\\Views\\Sessions",
+    "\\Views\\Shared",
+    "\\Views\\Statistics"
+  ],
+  "SelectedNode": "\\Controllers\\SessionsController.cs",
+  "PreviewInSolutionExplorer": false
+}

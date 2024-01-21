@@ -27,7 +27,7 @@ namespace WebApplication1.Controllers
                           Problem("Entity set 'ApplicationDbContext.ExerciseType'  is null.");
         }
 
-        // GET: ExerciseTypes/Details/5
+        // GET: ExerciseTypes/Details
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.ExerciseType == null)
@@ -83,7 +83,7 @@ namespace WebApplication1.Controllers
             return View(exerciseType);
         }
 
-        // POST: ExerciseTypes/Edit/5
+        // POST: ExerciseTypes/Edit
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -136,7 +136,7 @@ namespace WebApplication1.Controllers
             return View(exerciseType);
         }
 
-        // POST: ExerciseTypes/Delete/5
+        // POST: ExerciseTypes/Delete
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

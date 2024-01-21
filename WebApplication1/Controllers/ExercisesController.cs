@@ -31,7 +31,7 @@ namespace WebApplication1.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Exercises/Details/5
+        // GET: Exercises/Details
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Exercise == null)
@@ -62,10 +62,8 @@ namespace WebApplication1.Controllers
                 .Where(s => s.UserId == user.Id)
                 .ToList();
 
-            // Ustaw listę rozwijaną SessionId tylko na sesje aktualnie zalogowanego użytkownika
             ViewData["SessionId"] = new SelectList(userSessions, "Id", "Start");
 
-            // Ustaw listę rozwijaną ExerciseTypeId
             ViewData["ExerciseTypeId"] = new SelectList(_context.Set<ExerciseType>(), "Id", "Name");
 
             return View();
@@ -89,7 +87,7 @@ namespace WebApplication1.Controllers
             return View(exercise);
         }
 
-        // GET: Exercises/Edit/5
+        // GET: Exercises/Edit
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Exercise == null)
@@ -107,7 +105,7 @@ namespace WebApplication1.Controllers
             return View(exercise);
         }
 
-        // POST: Exercises/Edit/5
+        // POST: Exercises/Edit
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -144,7 +142,7 @@ namespace WebApplication1.Controllers
             return View(exercise);
         }
 
-        // GET: Exercises/Delete/5
+        // GET: Exercises/Delete
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Exercise == null)
@@ -164,7 +162,7 @@ namespace WebApplication1.Controllers
             return View(exercise);
         }
 
-        // POST: Exercises/Delete/5
+        // POST: Exercises/Delete
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

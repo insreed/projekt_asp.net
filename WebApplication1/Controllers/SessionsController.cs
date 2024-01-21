@@ -26,20 +26,8 @@ namespace WebApplication1.Controllers
         {
             _context = context;
             _userManager = userManager;
-            _logger = logger; // Poprawna nazwa zmiennej
+            _logger = logger;
         }
-
-
-        //GET: Sessions
-        //public async Task<IActionResult> Index()
-        //{
-        //    IdentityUser user = _userManager.FindByNameAsync(User.Identity.Name).Result;
-        //    return _context.Session != null ?
-        //                  //Include(m => m.User)
-        //                  //Where(m=>m.User == user)
-        //                  View(await _context.Session.Where(m => m.User == user).Include(m => m.User).ToListAsync()) :
-        //                  Problem("Entity set 'ApplicationDbContext.Session'  is null.");
-        //}
 
         public async Task<IActionResult> Index()
         {
@@ -47,14 +35,14 @@ namespace WebApplication1.Controllers
             IdentityUser user = await _userManager.FindByNameAsync(User.Identity.Name);
                 // Pobierz sesje dla danego użytkownika
                 var userSessions = await _context.Session
-                    .Where(m => m.UserId == user.Id) // Zakładam, że istnieje kolumna UserId w tabeli Session
+                    .Where(m => m.UserId == user.Id)
                     .Include(m => m.User)
                     .ToListAsync();
 
                 return View(userSessions);   
         }
 
-        // GET: Sessions/Details/5
+        // GET: Sessions/Details
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Session == null)
@@ -96,23 +84,6 @@ namespace WebApplication1.Controllers
             return View(session);
         }
 
-        // GET: Sessions/Edit/5
-        //public async Task<IActionResult> Edit(int? id)
-        //{
-        //    if (id == null || _context.Session == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var session = await _context.Session.FindAsync(id);
-        //    if (session == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return View(session);
-        //}
-
-        // GET: Sessions/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -132,7 +103,7 @@ namespace WebApplication1.Controllers
             return View(session);
         }
 
-        // POST: Sessions/Edit/5
+        // POST: Sessions/Edit
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
 
@@ -149,7 +120,6 @@ namespace WebApplication1.Controllers
             {
                 try
                 {
-                    // Ustaw UserId przed zapisaniem zmian w bazie danych
                     session.UserId = _userManager.GetUserId(User);
 
                     _context.Update(session);
@@ -172,44 +142,7 @@ namespace WebApplication1.Controllers
             return View(session);
         }
 
-        //public async Task<IActionResult> Edit(int id, [Bind("Id,Start,End,SessionName")] Session session)
-        //{
-        //    if (id != session.Id)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    if (ModelState.IsValid)
-        //    {
-        //        try
-        //        {
-        //            // Aktualizuj sesję
-        //            _context.Update(session);
-        //            await _context.SaveChangesAsync();
-        //        }
-        //        catch (DbUpdateConcurrencyException ex)
-        //        {
-        //            // Obsługa błędów związanych z konkurencją
-        //            // Tutaj możesz dodatkowo zalogować błąd, aby zrozumieć, co się dzieje
-        //            _logger.LogError(ex, "Concurrency error occurred during session update.");
-
-        //            if (!SessionExists(session.Id))
-        //            {
-        //                return NotFound();
-        //            }
-        //            else
-        //            {
-        //                throw;
-        //            }
-        //        }
-
-        //        return RedirectToAction(nameof(Index));
-        //    }
-
-        //    return View(session);
-        //}
-
-        // GET: Sessions/Delete/5
+        // GET: Sessions/Delete
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Session == null)
@@ -227,7 +160,7 @@ namespace WebApplication1.Controllers
             return View(session);
         }
 
-        // POST: Sessions/Delete/5
+        // POST: Sessions/Delete
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
