@@ -5,11 +5,8 @@ Instrukcja uruchomienia projektu:
 4. Jeśli w folderze Data/Migrations jest jakikolwiek plik - usuń go.
 5. W Visual studio po wczytaniu projektu kliknij na narzędzia -> Menadżer pakietów NuGet -> Konsola menadżera pakietów
 6. Wklej kolejno polecenia:
- Add-Migration 001 -OutputDir "Data/Migrations"
- 
- 
- 
- Update-Database
+ - Add-Migration 001 -OutputDir "Data/Migrations"
+ - Update-Database
 7. Uruchom projekt.
 8. W celu przetestowania działania aplikacji zarejestruj użytkownika, po rejestracju trzeba kliknąć:
 9. Click here to confirm your account
