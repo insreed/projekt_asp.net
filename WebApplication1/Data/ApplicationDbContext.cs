@@ -10,8 +10,10 @@ namespace WebApplication1.Data
             : base(options)
         {
         }
+        public DbSet<WebApplication1.Models.Statistics>? Statistics { get; set; }
         public DbSet<WebApplication1.Models.ExerciseType>? ExerciseType { get; set; }
         public DbSet<WebApplication1.Models.Session>? Session { get; set; }
         public DbSet<WebApplication1.Models.Exercise>? Exercise { get; set; }
+        public DbSet<WebApplication1.Models.Goals>? Goals { get; set; }
     }
 }

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<WebApplication1.Models.Goals>
+
+@{
+    ViewData["Title"] = "Goals";
+}
+
+<h1>Goals</h1>
+
+<p>
+    <a asp-action="Create">Create New Goal</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Goal Type</th>
+            <th>Mass</th>
+            <th>Weight Loss</th>
+            <!-- Dodaj resztę nagłówków zależnie od pól modelu -->
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var goal in Model)
+        {
+            <tr>
+                <td>
+                    @goal.GetGoalTypeName()
+                </td>
+                <td>@goal.Mass</td>
+                <td>
+                    @if (goal.GoalType == 2)
+                    {
+                        @(goal.Mass - goal.WeightGoal)
+                    }
+                    else
+                    {
+                        <text></text>
+                    }
+                </td>
+                <!-- Dodaj resztę pól zależnie od pól modelu -->
+                <td>
+                    <a asp-action="Edit" asp-route-id="@goal.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@goal.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@goal.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

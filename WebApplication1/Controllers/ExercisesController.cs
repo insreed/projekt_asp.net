@@ -105,18 +105,7 @@ namespace WebApplication1.Controllers
         // GET: Exercises/Edit
         public async Task<IActionResult> Edit(int? id)
         {
-            //if (id == null || _context.Exercise == null)
-            //{
-            //    return NotFound();
-            //}
 
-            //var exercise = await _context.Exercise.FindAsync(id);
-            //if (exercise == null)
-            //{
-            //    return NotFound();
-            //}
-            //ViewData["ExerciseTypeId"] = new SelectList(_context.Set<ExerciseType>(), "Id", "Id", exercise.ExerciseTypeId);
-            //ViewData["SessionId"] = new SelectList(_context.Session, "Id", "Id", exercise.SessionId);
             if (id == null)
             {
                 return NotFound();
