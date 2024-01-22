@@ -9,129 +9,131 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WebApplication1
 build_property.RootNamespace = WebApplication1
-build_property.ProjectDir = C:\Users\Adams\Desktop\ProgramowanieProjekt\projekt_asp.net\WebApplication1\
+build_property.ProjectDir = C:\Users\reed\Desktop\test_project\projekt_asp.net\WebApplication1\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Adams\Desktop\ProgramowanieProjekt\projekt_asp.net\WebApplication1
+build_property.MSBuildProjectDirectory = C:\Users\reed\Desktop\test_project\projekt_asp.net\WebApplication1
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Adams/Desktop/ProgramowanieProjekt/projekt_asp.net/WebApplication1/Areas/Identity/Pages/_ViewStart.cshtml]
+[C:/Users/reed/Desktop/test_project/projekt_asp.net/WebApplication1/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Adams/Desktop/ProgramowanieProjekt/projekt_asp.net/WebApplication1/Views/Exercises/Create.cshtml]
+[C:/Users/reed/Desktop/test_project/projekt_asp.net/WebApplication1/Views/Exercises/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhlcmNpc2VzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Adams/Desktop/ProgramowanieProjekt/projekt_asp.net/WebApplication1/Views/Exercises/Delete.cshtml]
+[C:/Users/reed/Desktop/test_project/projekt_asp.net/WebApplication1/Views/Exercises/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhlcmNpc2VzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Adams/Desktop/ProgramowanieProjekt/projekt_asp.net/WebApplication1/Views/Exercises/Details.cshtml]
+[C:/Users/reed/Desktop/test_project/projekt_asp.net/WebApplication1/Views/Exercises/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhlcmNpc2VzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Adams/Desktop/ProgramowanieProjekt/projekt_asp.net/WebApplication1/Views/Exercises/Edit.cshtml]
+[C:/Users/reed/Desktop/test_project/projekt_asp.net/WebApplication1/Views/Exercises/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhlcmNpc2VzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Adams/Desktop/ProgramowanieProjekt/projekt_asp.net/WebApplication1/Views/Exercises/Index.cshtml]
+[C:/Users/reed/Desktop/test_project/projekt_asp.net/WebApplication1/Views/Exercises/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhlcmNpc2VzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Adams/Desktop/ProgramowanieProjekt/projekt_asp.net/WebApplication1/Views/ExerciseTypes/Create.cshtml]
+[C:/Users/reed/Desktop/test_project/projekt_asp.net/WebApplication1/Views/ExerciseTypes/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhlcmNpc2VUeXBlc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Adams/Desktop/ProgramowanieProjekt/projekt_asp.net/WebApplication1/Views/ExerciseTypes/Delete.cshtml]
+[C:/Users/reed/Desktop/test_project/projekt_asp.net/WebApplication1/Views/ExerciseTypes/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhlcmNpc2VUeXBlc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Adams/Desktop/ProgramowanieProjekt/projekt_asp.net/WebApplication1/Views/ExerciseTypes/Details.cshtml]
+[C:/Users/reed/Desktop/test_project/projekt_asp.net/WebApplication1/Views/ExerciseTypes/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhlcmNpc2VUeXBlc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Adams/Desktop/ProgramowanieProjekt/projekt_asp.net/WebApplication1/Views/ExerciseTypes/Edit.cshtml]
+[C:/Users/reed/Desktop/test_project/projekt_asp.net/WebApplication1/Views/ExerciseTypes/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhlcmNpc2VUeXBlc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Adams/Desktop/ProgramowanieProjekt/projekt_asp.net/WebApplication1/Views/ExerciseTypes/Index.cshtml]
+[C:/Users/reed/Desktop/test_project/projekt_asp.net/WebApplication1/Views/ExerciseTypes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhlcmNpc2VUeXBlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Adams/Desktop/ProgramowanieProjekt/projekt_asp.net/WebApplication1/Views/Goals/Create.cshtml]
+[C:/Users/reed/Desktop/test_project/projekt_asp.net/WebApplication1/Views/Goals/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR29hbHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Adams/Desktop/ProgramowanieProjekt/projekt_asp.net/WebApplication1/Views/Goals/Delete.cshtml]
+[C:/Users/reed/Desktop/test_project/projekt_asp.net/WebApplication1/Views/Goals/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR29hbHNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Adams/Desktop/ProgramowanieProjekt/projekt_asp.net/WebApplication1/Views/Goals/Edit.cshtml]
+[C:/Users/reed/Desktop/test_project/projekt_asp.net/WebApplication1/Views/Goals/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR29hbHNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Adams/Desktop/ProgramowanieProjekt/projekt_asp.net/WebApplication1/Views/Goals/Index.cshtml]
+[C:/Users/reed/Desktop/test_project/projekt_asp.net/WebApplication1/Views/Goals/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR29hbHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Adams/Desktop/ProgramowanieProjekt/projekt_asp.net/WebApplication1/Views/Home/Index.cshtml]
+[C:/Users/reed/Desktop/test_project/projekt_asp.net/WebApplication1/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Adams/Desktop/ProgramowanieProjekt/projekt_asp.net/WebApplication1/Views/Home/Privacy.cshtml]
+[C:/Users/reed/Desktop/test_project/projekt_asp.net/WebApplication1/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Adams/Desktop/ProgramowanieProjekt/projekt_asp.net/WebApplication1/Views/Sessions/Create.cshtml]
+[C:/Users/reed/Desktop/test_project/projekt_asp.net/WebApplication1/Views/Sessions/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vzc2lvbnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Adams/Desktop/ProgramowanieProjekt/projekt_asp.net/WebApplication1/Views/Sessions/Delete.cshtml]
+[C:/Users/reed/Desktop/test_project/projekt_asp.net/WebApplication1/Views/Sessions/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vzc2lvbnNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Adams/Desktop/ProgramowanieProjekt/projekt_asp.net/WebApplication1/Views/Sessions/Details.cshtml]
+[C:/Users/reed/Desktop/test_project/projekt_asp.net/WebApplication1/Views/Sessions/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vzc2lvbnNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Adams/Desktop/ProgramowanieProjekt/projekt_asp.net/WebApplication1/Views/Sessions/Edit.cshtml]
+[C:/Users/reed/Desktop/test_project/projekt_asp.net/WebApplication1/Views/Sessions/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vzc2lvbnNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Adams/Desktop/ProgramowanieProjekt/projekt_asp.net/WebApplication1/Views/Sessions/Index.cshtml]
+[C:/Users/reed/Desktop/test_project/projekt_asp.net/WebApplication1/Views/Sessions/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vzc2lvbnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Adams/Desktop/ProgramowanieProjekt/projekt_asp.net/WebApplication1/Views/Shared/Error.cshtml]
+[C:/Users/reed/Desktop/test_project/projekt_asp.net/WebApplication1/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Adams/Desktop/ProgramowanieProjekt/projekt_asp.net/WebApplication1/Views/Shared/_LoginPartial.cshtml]
+[C:/Users/reed/Desktop/test_project/projekt_asp.net/WebApplication1/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Adams/Desktop/ProgramowanieProjekt/projekt_asp.net/WebApplication1/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/reed/Desktop/test_project/projekt_asp.net/WebApplication1/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Adams/Desktop/ProgramowanieProjekt/projekt_asp.net/WebApplication1/Views/Statistics/Index.cshtml]
+[C:/Users/reed/Desktop/test_project/projekt_asp.net/WebApplication1/Views/Statistics/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdGlzdGljc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Adams/Desktop/ProgramowanieProjekt/projekt_asp.net/WebApplication1/Views/Treningi/Index.cshtml]
+[C:/Users/reed/Desktop/test_project/projekt_asp.net/WebApplication1/Views/Treningi/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJlbmluZ2lcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Adams/Desktop/ProgramowanieProjekt/projekt_asp.net/WebApplication1/Views/_ViewImports.cshtml]
+[C:/Users/reed/Desktop/test_project/projekt_asp.net/WebApplication1/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Adams/Desktop/ProgramowanieProjekt/projekt_asp.net/WebApplication1/Views/_ViewStart.cshtml]
+[C:/Users/reed/Desktop/test_project/projekt_asp.net/WebApplication1/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Adams/Desktop/ProgramowanieProjekt/projekt_asp.net/WebApplication1/Views/Shared/_Layout.cshtml]
+[C:/Users/reed/Desktop/test_project/projekt_asp.net/WebApplication1/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-bddmc6yalx

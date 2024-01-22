@@ -37,6 +37,7 @@
                 <select asp-for="SessionId" class="form-control" asp-items="ViewBag.Sessions"></select>
                 <span asp-validation-for="SessionId" class="text-danger"></span>
             </div>
+            <input type="hidden" asp-for="UserId" />
             <div class="form-group">
                 <input type="submit" value="Zapisz" class="btn btn-primary" style="margin-top:10px" />
             </div>

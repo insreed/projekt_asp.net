@@ -3,7 +3,7 @@ Instrukcja uruchomienia projektu:
 2. Klikając prawym przyciskiem w ekplorerze windows wybierz opcję otwórz w terminalu i wpisz następującą komendę
 3. git clone https://github.com/insreed/projekt_asp.net.git
 4. Jeśli w folderze Data/Migrations jest jakikolwiek plik - usuń go.
-5. Jeżeli masz bazę danych o nazwie baza-danych - usuń ją.
+5. Sprawdź czy masz już bazę danych, (Kliknij View -> SQL Server Object Explorer -> Rozwiń SQL Server -> Databases.Jeżeli masz bazę danych o nazwie baza-danych - usuń ją.
 5. W Visual studio po wczytaniu projektu kliknij na narzędzia -> Menadżer pakietów NuGet -> Konsola menadżera pakietów
 6. Wklej kolejno polecenia:
  - Add-Migration 001 -OutputDir "Data/Migrations"

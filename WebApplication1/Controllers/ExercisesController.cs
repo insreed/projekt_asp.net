@@ -153,6 +153,11 @@ namespace WebApplication1.Controllers
             {
                 try
                 {
+                    // Pobierz UserId zalogowanego użytkownika
+                    IdentityUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+                    exercise.UserId = user.Id;
+
+                    // Zapisz zmiany
                     _context.Update(exercise);
                     await _context.SaveChangesAsync();
                 }
@@ -169,8 +174,14 @@ namespace WebApplication1.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ExerciseTypeId"] = new SelectList(_context.Set<ExerciseType>(), "Id", "Id", exercise.ExerciseTypeId);
-            ViewData["SessionId"] = new SelectList(_context.Session, "Id", "Id", exercise.SessionId);
+
+            // Jeżeli ModelState.IsValid nie jest prawdziwe, ponownie pobierz listy i zwróć widok
+            var userSessions = _context.Session.Where(s => s.UserId == exercise.UserId).ToList();
+            ViewBag.Sessions = new SelectList(userSessions, "Id", "Start", exercise.SessionId);
+
+            var userExerciseTypes = _context.ExerciseType.Where(et => et.UserId == exercise.UserId).ToList();
+            ViewBag.ExerciseTypes = new SelectList(userExerciseTypes, "Id", "Name", exercise.ExerciseTypeId);
+
             return View(exercise);
         }
 
