@@ -19,16 +19,29 @@ namespace WebApplication1.Controllers
 
         public IActionResult Index()
         {
-            var sessions = _context.Session.ToList();
-            var exercises = _context.Exercise.Include(e => e.ExerciseType).ToList();
-
-            var viewModel = new HomeIndexViewModel
+            if (User.Identity.IsAuthenticated)
             {
-                Sessions = sessions,
-                Exercises = exercises
-            };
+                // Jeśli użytkownik jest zalogowany, pobierz dane związane z sesjami i ćwiczeniami
+                var userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+                var sessions = _context.Session.Where(s => s.UserId == userId).ToList();
+                var exercises = _context.Exercise
+                    .Include(e => e.ExerciseType)
+                    .Where(e => sessions.Select(s => s.Id).Contains(e.SessionId))
+                    .ToList();
 
-            return View(viewModel);
+                var viewModel = new HomeIndexViewModel
+                {
+                    Sessions = sessions,
+                    Exercises = exercises
+                };
+
+                return View(viewModel);
+            }
+            else
+            {
+                // Jeśli użytkownik nie jest zalogowany, zwróć widok bez danych treningowych
+                return View();
+            }
         }
 
 
