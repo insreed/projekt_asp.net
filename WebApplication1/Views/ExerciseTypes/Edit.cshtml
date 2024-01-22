@@ -1,12 +1,11 @@
 ﻿@model WebApplication1.Models.ExerciseType
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edycja typu ćwiczenia";
 }
 
-<h1>Edit</h1>
+<h1>Edytuj typ ćwiczenia</h1>
 
-<h4>ExerciseType</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -14,19 +13,19 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
+                <label asp-for="Name" class="control-label">Nazwa typu ćwiczenia</label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Zapisz" class="btn btn-primary" style="margin-top:10px" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" style="margin-top:10px">Wróć do listy typów ćwiczeń</a>
 </div>
 
 @section Scripts {

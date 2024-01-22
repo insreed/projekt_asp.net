@@ -87,6 +87,8 @@ namespace WebApplication1.Controllers
             {
                 try
                 {
+                    var originalGoal = await _context.Goals.AsNoTracking().FirstOrDefaultAsync(g => g.Id == id);
+                    goal.UserId = originalGoal.UserId;
                     _context.Update(goal);
                     await _context.SaveChangesAsync();
                 }
@@ -106,7 +108,25 @@ namespace WebApplication1.Controllers
             return View(goal);
         }
 
-        // Reszta akcji pozostaje bez zmian
+        //usuwanie
+        [HttpPost]
+        public IActionResult DeleteSelectedGoals(List<int> goalIds)
+        {
+            foreach (var goalId in goalIds)
+            {
+                var goalToDelete = _context.Goals.Find(goalId);
+
+                if (goalToDelete != null)
+                {
+                    _context.Goals.Remove(goalToDelete);
+                }
+            }
+
+            _context.SaveChanges();
+
+            return Ok();
+        }
+
 
         private bool GoalsExists(int id)
         {

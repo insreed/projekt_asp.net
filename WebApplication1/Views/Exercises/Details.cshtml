@@ -1,13 +1,13 @@
 ﻿@model WebApplication1.Models.Exercise
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Szczegóły";
 }
 
-<h1>Details</h1>
+<h1>Szczegóły ćwiczenia</h1>
 
 <div>
-    <h4>Exercise</h4>
+    <h4>Ćwiczenie</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -49,6 +49,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model?.Id" style="margin-top:10px">Edytuj</a> |
+    <a asp-action="Index" style="margin-top:10px">Wróć do listy ćwiczeń</a>
 </div>

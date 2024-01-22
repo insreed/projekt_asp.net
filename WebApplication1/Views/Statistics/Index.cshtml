@@ -7,8 +7,9 @@
 
 <div class="container">
     <h1 class="text-center mb-4">Twoje statystyki z ostatniego miesiąca</h1>
-
-    <div class="table-responsive">
+    @if (Model.Any())
+    {
+           <div class="table-responsive">
         <table class="table table-bordered table-hover">
             <thead class="thead-dark">
                 <tr>
@@ -30,5 +31,11 @@
                 }
             </tbody>
         </table>
-    </div>
+        </div>
+
+    }
+    else
+    {
+        <h2 style="text-align:center">Brak statystyk.</h2>
+    }
 </div>

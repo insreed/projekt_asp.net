@@ -1,63 +1,71 @@
 ﻿@model IEnumerable<WebApplication1.Models.Exercise>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Ćwiczenia";
 }
 
-<h1>Index</h1>
+<h1>Ćwiczenia</h1>
 
-<p><a asp-action="Create" class="btn btn-primary">Utwórz Ćwiczenie</a></p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Weight)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Reps)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Series)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ExerciseType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SessionId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Weight)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Reps)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Series)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ExerciseType.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Session.Start)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.User.UserName)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Weight)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Reps)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Series)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ExerciseType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SessionId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.User)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Weight)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Reps)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Series)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ExerciseType.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Session.Start)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.User.UserName)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edytuj</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Szczegóły</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 }
-    </tbody>
-</table>
+else
+{
+    <p>Nie dodano żadnych ćwiczeń.</p>
+}
+<p><a asp-action="Create" class="btn btn-primary" style="margin-top:10px">Utwórz Ćwiczenie</a></p>

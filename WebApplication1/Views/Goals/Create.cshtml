@@ -1,10 +1,10 @@
 ﻿@model WebApplication1.Models.Goals
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Tworzenie celu";
 }
 
-<h1>Create</h1>
+<h1>Tworzenie celu</h1>
 
 <form asp-action="Create" id="goalForm">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -37,27 +37,30 @@
     </div>
 
     <div class="form-group">
-        <input type="submit" value="Create" class="btn btn-primary" />
+        <input type="submit" value="Utwórz" class="btn btn-primary" style="margin-top:10px" />
     </div>
 </form>
 
 @section Scripts {
     <script>
         $(document).ready(function () {
-            // Hide the Mass and MassGoal fields initially
             $("#massGroup, #massGoalGroup").hide();
 
-            // Show/hide the fields based on the selected GoalType
-            $("#goalType").change(function () {
+            $("#goalType").change(function () 
+            {
                 var selectedValue = $(this).val();
-                if (selectedValue == "1") {
+                if (selectedValue == "1") 
+                {
                     $("#massGroup, #massGoalGroup").hide();
                     $("#weightGoalGroup").show();
-                } else if (selectedValue == "2") {
+                } 
+                else if (selectedValue == "2") 
+                {
                     $("#massGroup, #massGoalGroup").show();
                     $("#weightGoalGroup").hide();
-                } else {
-                    // Handle other cases if needed
+                } 
+                else 
+                {
                 }
             });
         });

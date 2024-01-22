@@ -1,33 +1,41 @@
 ﻿@model IEnumerable<WebApplication1.Models.ExerciseType>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Typy ćwiczeń";
 }
 
-<h1>Index</h1>
+<h1>Typy ćwiczeń</h1>
 
-<p><a asp-action="Create" class="btn btn-primary">Utwórz typ ćwiczenia</a></p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edycja</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Szczegóły</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 }
-    </tbody>
-</table>
+else
+{
+    <p>Nie dodano żadnych typów ćwiczeń</p>
+}
+<p><a asp-action="Create" class="btn btn-primary" style="margin-top:10px">Utwórz typ ćwiczenia</a></p>

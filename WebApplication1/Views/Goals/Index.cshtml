@@ -1,71 +1,119 @@
 ﻿@model List<WebApplication1.Models.Goals>
 
-<h2>Lista Dodanych Celów</h2>
-
-<p><a asp-action="Create" class="btn btn-primary">Utwórz Cel</a></p>
+<h1>Lista Dodanych Celów</h1>
 
 @if (Model.Any(g => g.GoalType == 1 || g.GoalType == 2))
 {
-
     @if (Model.Any(g => g.GoalType == 1))
-{
-<table class="table">
-    <thead>
-        <tr>
-            <th>Typ Celu</th>
-            <th>Docelowy Ciężar</th>
-            <th>Data utworzenia</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var goal in Model.Where(g => g.GoalType == 1))
-        {
-            <tr>
-                <td>@goal.GetGoalTypeName()</td>
-                <td>@goal.WeightGoal</td>
-                <td>@goal.CreateDate.ToString("yyyy-MM-dd")</td>
-            </tr>
-        }
-    </tbody>
-</table>
-}
-else
-{
-    <p></p>
-}
+    {
+        <h3>Cele typu 1</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Typ Celu</th>
+                    <th>Docelowy Ciężar</th>
+                    <th>Data utworzenia</th>
+                    <th>Akcje</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var goal in Model.Where(g => g.GoalType == 1))
+                {
+                    <tr>
+                        <td>@goal.GetGoalTypeName()</td>
+                        <td>@goal.WeightGoal</td>
+                        <td>@goal.CreateDate.ToString("yyyy-MM-dd")</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@goal.Id" class="btn btn-warning">Edytuj</a>
+                            <input type="checkbox" class="goal-checkbox" data-goal-id="@goal.Id" />
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p></p>
+    }
 
     @if (Model.Any(g => g.GoalType == 2))
-{
-<table class="table">
-    <thead>
-        <tr>
-            <th>Typ Celu</th>
-            <th>Aktualna Masa</th>
-            <th>Docelowa Masa</th>
-            <th>Różnica</th>
-            <th>Data utworzenia</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var goal in Model.Where(g => g.GoalType == 2))
-        {
-            <tr>
-                <td>@goal.GetGoalTypeName()</td>
-                <td>@goal.Mass</td>
-                <td>@goal.MassGoal</td>
-                <td>@((goal.MassGoal - goal.Mass)*-1)</td>
-                <td>@goal.CreateDate.ToString("yyyy-MM-dd")</td>
-            </tr>
-        }
-    </tbody>
-</table>
-}
-else
-{
-<p></p>
-}
+    {
+        <h3>Cele typu 2</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Typ Celu</th>
+                    <th>Aktualna Masa</th>
+                    <th>Docelowa Masa</th>
+                    <th>Różnica</th>
+                    <th>Data utworzenia</th>
+                    <th>Akcje</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var goal in Model.Where(g => g.GoalType == 2))
+                {
+                    <tr>
+                        <td>@goal.GetGoalTypeName()</td>
+                        <td>@goal.Mass</td>
+                        <td>@goal.MassGoal</td>
+                        <td>@((goal.MassGoal - goal.Mass) * -1)</td>
+                        <td>@goal.CreateDate.ToString("yyyy-MM-dd")</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@goal.Id" class="btn btn-warning">Edytuj</a>
+                            <input type="checkbox" class="goal-checkbox" data-goal-id="@goal.Id" />
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p></p>
+    }
+
+    <button id="deleteSelectedGoals" class="btn btn-danger" disabled>Usuń zaznaczone cele</button>
 }
 else
 {
     <p>Brak dodanych celów.</p>
+}
+
+<p><a asp-action="Create" class="btn btn-primary" style="margin-top:10px">Utwórz Cel</a></p>
+
+
+@section scripts
+{
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".goal-checkbox").change(function () {
+                var anyCheckboxChecked = $(".goal-checkbox:checked").length > 0;
+                $("#deleteSelectedGoals").prop("disabled", !anyCheckboxChecked);
+            });
+
+            $("#deleteSelectedGoals").on("click", function () {
+                var selectedGoals = $(".goal-checkbox:checked");
+                var goalIds = [];
+
+                selectedGoals.each(function () {
+                    goalIds.push($(this).data("goal-id"));
+                });
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Goals/DeleteSelectedGoals",
+                    data: { goalIds: goalIds },
+                    success: function () {
+                        location.reload();
+                    },
+                    error: function () {
+                        alert("Wystąpił błąd podczas usuwania celów.");
+                    }
+                });
+            });
+        });
+    </script>
 }
