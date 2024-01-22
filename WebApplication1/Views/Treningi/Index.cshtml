@@ -1,35 +1,11 @@
-﻿@model WebApplication1.ViewModels.HomeIndexViewModel
-@{
+﻿@{
     ViewData["Title"] = "Aplikacja do śledzenia treningów";
 }
 
 <div class="text-center">
     <h1 class="display-4">Witaj w aplikacji do śledzenia treningów i postępów!</h1>
-</div><hr />
-@if (User.Identity.IsAuthenticated)
-{
-    foreach (var session in Model.Sessions)
-    {
-        <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 20px;">
-            <h3>Nazwa sesji: @session.SessionName</h3>
-            <p>Data rozpoczęcia: @session.Start</p>
+</div>
 
-            <h4>Wykonywane ćwiczenia:</h4>
-            @foreach (var exercise in Model.Exercises.Where(e => e.SessionId == session.Id))
-            {
-                <p>
-                    Nazwa ćwiczenia: @(exercise.ExerciseType?.Name) |
-                    Ilość serii: @exercise.Series |
-                    Powtórzenia: @exercise.Reps
-                </p>
-            }
-        </div>
-    }
-}
-else
-{
-    <h1>Zaloguj się, aby wprowadzić treningi.</h1>
-}
 <div class="container mt-5">
     <h2>Przykładowe treningi siłowe</h2>
 

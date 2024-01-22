@@ -17,7 +17,5 @@ namespace WebApplication1.Models
         [DisplayName("Nazwa ćwiczenia:")]
         public string ExcerciseType { get; set; }
 
-        
-
     }
 }
